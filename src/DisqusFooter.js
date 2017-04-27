@@ -22,7 +22,9 @@ const DisqusFooter = React.createClass({
         const pageConfig = page.attributes.get('disqus', Immutable.Map());
 
         // Disqus is disabled for this page
-        if (!shortName || pageConfig === false || pageConfig.get('enabled') === false) {
+        const disabledForThisPage = !shortName || pageConfig === false || pageConfig.get('enabled') === false;
+
+        if ( disabledForThisPage ) {
             return null;
         }
 
